@@ -1,9 +1,5 @@
-// PROCS Web App
-// Tyson S. Barrett, PhD
-// November 2024
-
 import React, { useState } from 'react';
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { Card, CardHeader, CardTitle, CardContent } from '../components/ui/card';
 
 const ConversationAssessment = () => {
   const [formData, setFormData] = useState({
@@ -38,14 +34,14 @@ const ConversationAssessment = () => {
     { label: 'Strongly Agree', value: 0 }
   ];
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
 
-  const handleResponseChange = (questionIndex, value) => {
+  const handleResponseChange = (questionIndex: number, value: number) => {
     const newResponses = [...formData.responses];
     newResponses[questionIndex] = value;
     setFormData({
