@@ -163,7 +163,7 @@ const ConversationAssessment = () => {
                   {questions.map((question, index) => (
                     <tr key={index} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
                       <td className="px-4 py-4 text-sm text-gray-900">
-                        {index + 1}. In this conversation, it was difficult for me to... {question}.
+                        {index + 1}. In this conversation, it was difficult for me to... <span className="font-bold">{question}</span>.
                       </td>
                       {options.map((option) => (
                         <td key={option.label} className="px-4 py-4 text-center">
