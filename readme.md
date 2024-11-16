@@ -103,11 +103,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - Form design based on research by Budge, Baylor, Barrett, & Borrie
 - UI components from shadcn/ui
-
-## Author
-
-Your Name - [@yourgithub](https://github.com/yourgithub)
-
-## Support
-
-If you found this project helpful, please give it a ⭐️!
