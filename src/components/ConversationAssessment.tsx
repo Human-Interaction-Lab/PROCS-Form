@@ -144,20 +144,21 @@ const ConversationAssessment = () => {
             </div>
 
             {/* Assessment Questions */}
-            <div className="mt-6">
-              <table className="min-w-full divide-y divide-gray-200">
-                <thead>
-                  <tr>
-                    <th className="px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Question
-                    </th>
-                    {options.map((option) => (
-                      <th key={option.label} className="px-4 py-3 bg-gray-50 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        {option.label}
+            <div className="mt-6 relative">
+              <div className="max-h-[600px] overflow-y-auto">
+                <table className="min-w-full divide-y divide-gray-200">
+                  <thead className="sticky top-0 z-10">
+                    <tr>
+                      <th className="px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider shadow-sm">
+                        Question
                       </th>
-                    ))}
-                  </tr>
-                </thead>
+                      {options.map((option) => (
+                        <th key={option.label} className="px-4 py-3 bg-gray-50 text-center text-xs font-medium text-gray-500 uppercase tracking-wider shadow-sm">
+                          {option.label}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
                   {questions.map((question, index) => (
                     <tr key={index} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
@@ -180,6 +181,7 @@ const ConversationAssessment = () => {
                   ))}
                 </tbody>
               </table>
+              </div>
             </div>
 
             {/* Results */}
