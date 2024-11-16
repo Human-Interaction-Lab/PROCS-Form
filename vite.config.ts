@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: 'tysonstanley.github.io/conversation-assessment-form/',
+  base: 'https://tysonbarrett.com/PROCS-Form/',
   plugins: [react()],
   resolve: {
     alias: {
