@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Card, CardHeader, CardTitle, CardContent } from '../components/ui/card';
 
 const ConversationAssessment = () => {
   const [formData, setFormData] = useState({
@@ -65,26 +64,30 @@ const ConversationAssessment = () => {
     return columnTotals.reduce((acc, count, index) => acc + count * (5 - index), 0);
   };
 
+  const isFormComplete = () => {
+    return formData.responses.every(response => response !== null);
+  };
+
   const handlePrintPDF = () => {
     window.print();
   };
 
   return (
     <div className="min-h-screen bg-gray-50 p-4 sm:p-6 lg:p-8">
-      <button
-        type="button"
-        onClick={handlePrintPDF}
-        className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-      >
-        Print Form
-      </button>
-      <Card className="max-w-4xl mx-auto bg-white">
-        <CardHeader>
-          <CardTitle className="text-2xl font-bold text-center text-gray-800">
-            Patient-Reported Outcome of Conversational Success (PROCS)
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
+      <div className="max-w-4xl mx-auto bg-white rounded-lg border shadow-sm">
+        <div className="p-6">
+          <div className="flex justify-between items-center mb-6">
+            <h1 className="text-2xl font-bold text-gray-800">
+              Conversation Assessment Form
+            </h1>
+            <button
+              type="button"
+              onClick={handlePrintPDF}
+              className="no-print inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            >
+              Print Form
+            </button>
+          </div>
           <form className="space-y-6">
             {/* Header Information */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -95,7 +98,7 @@ const ConversationAssessment = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
                 />
               </div>
               <div>
@@ -105,7 +108,7 @@ const ConversationAssessment = () => {
                   name="date"
                   value={formData.date}
                   onChange={handleInputChange}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
                 />
               </div>
               <div>
@@ -115,7 +118,7 @@ const ConversationAssessment = () => {
                   name="topic"
                   value={formData.topic}
                   onChange={handleInputChange}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
                 />
               </div>
               <div>
@@ -125,7 +128,7 @@ const ConversationAssessment = () => {
                   name="setting"
                   value={formData.setting}
                   onChange={handleInputChange}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
                 />
               </div>
             </div>
@@ -137,7 +140,7 @@ const ConversationAssessment = () => {
                 name="partner"
                 value={formData.partner}
                 onChange={handleInputChange}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
               />
             </div>
 
@@ -150,13 +153,13 @@ const ConversationAssessment = () => {
                 name="goal"
                 value={formData.goal}
                 onChange={handleInputChange}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
               />
             </div>
 
             {/* Assessment Questions */}
             <div className="mt-6 relative">
-              <div className="max-h-[600px] overflow-y-auto">
+              <div className="max-h-[600px] overflow-y-auto print-full">
                 <table className="min-w-full divide-y divide-gray-200">
                   <thead className="sticky top-0 z-10">
                     <tr>
@@ -206,15 +209,21 @@ const ConversationAssessment = () => {
                   </div>
                 ))}
               </div>
-              <div className="text-right">
-                <span className="text-lg font-medium text-gray-900">
-                  Raw score: {calculateTotalScore()} / 50
-                </span>
+              <div className="text-right space-x-4">
+                {isFormComplete() ? (
+                  <span className="text-lg font-medium text-gray-900">
+                    Raw score: {calculateTotalScore()} / 50
+                  </span>
+                ) : (
+                  <span className="text-sm text-gray-600 italic">
+                    Complete all questions to see your score
+                  </span>
+                )}
               </div>
             </div>
           </form>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
     </div>
   );
 };
