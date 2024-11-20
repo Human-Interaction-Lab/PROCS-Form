@@ -216,7 +216,7 @@ const ConversationAssessment = () => {
                   </span>
                 ) : (
                   <span className="text-sm text-gray-600 italic">
-                    Complete all questions to see your score
+                    Complete all 10 questions to see your score
                   </span>
                 )}
               </div>
