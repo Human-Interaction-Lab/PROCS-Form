@@ -73,11 +73,12 @@ const ConversationAssessment = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4 sm:p-6 lg:p-8 print:p-2 print:bg-white">
+    <div className="min-h-screen bg-gray-50 p-4 sm:p-6 lg:p-8 print:p-1 print:bg-white">
       <div className="max-w-4xl mx-auto bg-white rounded-lg border shadow-sm print:shadow-none print:border-0">
-        <div className="p-6 print:p-3">
-          <div className="flex justify-between items-center mb-6 print:mb-3">
-            <h1 className="text-2xl font-bold text-gray-800 print:text-xl">
+        <div className="p-6 print:p-2">
+          {/* Title and Print Button */}
+          <div className="flex justify-between items-center mb-6 print:mb-2">
+            <h1 className="text-2xl font-bold text-gray-800 print:text-lg print:mb-0">
               Patient-Reported Outcome of Conversational Success
             </h1>
             <button
@@ -89,73 +90,76 @@ const ConversationAssessment = () => {
             </button>
           </div>
 
-          <form className="space-y-6 print:space-y-3">
-            {/* Header Information */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 print:gap-2">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 print:text-xs">Name</label>
+          <form className="space-y-6 print:space-y-2">
+            {/* Header Information with tighter print layout */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 print:gap-1 print:grid-cols-2">
+              <div className="print:mb-1">
+                <label className="block text-sm font-medium text-gray-700 print:text-xs print:mb-0">Name</label>
                 <input
                   type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 print:py-1 print:px-2"
+                  className="mt-1 print:mt-0 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 print:py-0 print:px-1 print:text-xs"
                 />
               </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 print:text-xs">Date</label>
+              <div className="print:mb-1">
+                <label className="block text-sm font-medium text-gray-700 print:text-xs print:mb-0">Date</label>
                 <input
                   type="date"
                   name="date"
                   value={formData.date}
                   onChange={handleInputChange}
-                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 print:py-1 print:px-2"
+                  className="mt-1 print:mt-0 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 print:py-0 print:px-1 print:text-xs"
                 />
               </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 print:text-xs">Topic</label>
+              <div className="print:mb-1">
+                <label className="block text-sm font-medium text-gray-700 print:text-xs print:mb-0">Topic</label>
                 <input
                   type="text"
                   name="topic"
                   value={formData.topic}
                   onChange={handleInputChange}
-                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 print:py-1 print:px-2"
+                  className="mt-1 print:mt-0 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 print:py-0 print:px-1 print:text-xs"
                 />
               </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 print:text-xs">Setting</label>
+              <div className="print:mb-1">
+                <label className="block text-sm font-medium text-gray-700 print:text-xs print:mb-0">Setting</label>
                 <input
                   type="text"
                   name="setting"
                   value={formData.setting}
                   onChange={handleInputChange}
-                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 print:py-1 print:px-2"
+                  className="mt-1 print:mt-0 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 print:py-0 print:px-1 print:text-xs"
                 />
               </div>
             </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 print:text-xs">Partner</label>
-              <input
-                type="text"
-                name="partner"
-                value={formData.partner}
-                onChange={handleInputChange}
-                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 print:py-1 print:px-2"
-              />
-            </div>
+            {/* Partner and Goal fields with tighter print layout */}
+            <div className="space-y-4 print:space-y-1">
+              <div className="print:mb-1">
+                <label className="block text-sm font-medium text-gray-700 print:text-xs print:mb-0">Partner</label>
+                <input
+                  type="text"
+                  name="partner"
+                  value={formData.partner}
+                  onChange={handleInputChange}
+                  className="mt-1 print:mt-0 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 print:py-0 print:px-1 print:text-xs"
+                />
+              </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 print:text-xs">
-                What was the goal of this conversation?
-              </label>
-              <input
-                type="text"
-                name="goal"
-                value={formData.goal}
-                onChange={handleInputChange}
-                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 print:py-1 print:px-2"
-              />
+              <div className="print:mb-1">
+                <label className="block text-sm font-medium text-gray-700 print:text-xs print:mb-0">
+                  What was the goal of this conversation?
+                </label>
+                <input
+                  type="text"
+                  name="goal"
+                  value={formData.goal}
+                  onChange={handleInputChange}
+                  className="mt-1 print:mt-0 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 print:py-0 print:px-1 print:text-xs"
+                />
+              </div>
             </div>
 
             {/* Assessment Questions */}
@@ -200,29 +204,35 @@ const ConversationAssessment = () => {
             </div>
 
             {/* Results */}
-            <div className="mt-6 p-4 bg-gray-50 rounded-lg print:mt-2 print:p-2">
-              <h3 className="text-lg font-medium text-gray-900 mb-4 print:text-base print:mb-2">Results</h3>
-              <div className="grid grid-cols-6 gap-4 mb-4 print:gap-2 print:mb-2">
-                {calculateColumnTotals().map((count, index) => (
-                  <div key={index} className="text-center">
-                    <div className="text-sm text-gray-500 print:text-xs">× {5 - index}</div>
-                    <div className="font-medium text-gray-900 print:text-sm">{count}</div>
-                  </div>
-                ))}
-              </div>
-              <div className="text-right space-x-4">
-                {isFormComplete() ? (
-                  <span className="text-lg font-medium text-gray-900 print:text-base">
-                    Raw score: {calculateTotalScore()} / 50
-                  </span>
-                ) : (
-                  <span className="text-sm text-gray-600 italic print:text-xs">
-                    Complete all 10 questions to see your score
-                  </span>
-                )}
+            <div className="mt-6 p-4 bg-gray-50 rounded-lg print:mt-1 print:p-1 print:bg-white print:border-t">
+              <div className="print:flex print:justify-between print:items-center">
+                <div className="text-lg font-medium text-gray-900 mb-4 print:text-sm print:mb-0">
+                  Results
+                </div>
+                <div className="grid grid-cols-6 gap-4 mb-4 print:gap-2 print:mb-0 print:ml-4">
+                  {calculateColumnTotals().map((count, index) => (
+                    <div key={index} className="text-center">
+                      <div className="text-sm text-gray-500 print:text-xs print:inline print:mr-1">× {5 - index}</div>
+                      <div className="font-medium text-gray-900 print:text-xs print:inline">{count}</div>
+                    </div>
+                  ))}
+                </div>
+                <div className="text-right print:ml-4">
+                  {isFormComplete() ? (
+                    <span className="text-lg font-medium text-gray-900 print:text-sm">
+                      Raw score: {calculateTotalScore()} / 50
+                    </span>
+                  ) : (
+                    <span className="text-sm text-gray-600 italic print:text-xs">
+                      Complete all 10 questions to see your score
+                    </span>
+                  )}
+                </div>
               </div>
             </div>
+
           </form>
+
         </div>
       </div>
     </div>
