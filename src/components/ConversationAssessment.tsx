@@ -73,11 +73,11 @@ const ConversationAssessment = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4 sm:p-6 lg:p-8">
-      <div className="max-w-4xl mx-auto bg-white rounded-lg border shadow-sm">
-        <div className="p-6">
-          <div className="flex justify-between items-center mb-6">
-            <h1 className="text-2xl font-bold text-gray-800">
+    <div className="min-h-screen bg-gray-50 p-4 sm:p-6 lg:p-8 print:p-2 print:bg-white">
+      <div className="max-w-4xl mx-auto bg-white rounded-lg border shadow-sm print:shadow-none print:border-0">
+        <div className="p-6 print:p-3">
+          <div className="flex justify-between items-center mb-6 print:mb-3">
+            <h1 className="text-2xl font-bold text-gray-800 print:text-xl">
               Patient-Reported Outcome of Conversational Success
             </h1>
             <button
@@ -88,64 +88,65 @@ const ConversationAssessment = () => {
               Print Form
             </button>
           </div>
-          <form className="space-y-6">
+
+          <form className="space-y-6 print:space-y-3">
             {/* Header Information */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 print:gap-2">
               <div>
-                <label className="block text-sm font-medium text-gray-700">Name</label>
+                <label className="block text-sm font-medium text-gray-700 print:text-xs">Name</label>
                 <input
                   type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 print:py-1 print:px-2"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700">Date</label>
+                <label className="block text-sm font-medium text-gray-700 print:text-xs">Date</label>
                 <input
                   type="date"
                   name="date"
                   value={formData.date}
                   onChange={handleInputChange}
-                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 print:py-1 print:px-2"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700">Topic</label>
+                <label className="block text-sm font-medium text-gray-700 print:text-xs">Topic</label>
                 <input
                   type="text"
                   name="topic"
                   value={formData.topic}
                   onChange={handleInputChange}
-                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 print:py-1 print:px-2"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700">Setting</label>
+                <label className="block text-sm font-medium text-gray-700 print:text-xs">Setting</label>
                 <input
                   type="text"
                   name="setting"
                   value={formData.setting}
                   onChange={handleInputChange}
-                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 print:py-1 print:px-2"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700">Partner</label>
+              <label className="block text-sm font-medium text-gray-700 print:text-xs">Partner</label>
               <input
                 type="text"
                 name="partner"
                 value={formData.partner}
                 onChange={handleInputChange}
-                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 print:py-1 print:px-2"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700">
+              <label className="block text-sm font-medium text-gray-700 print:text-xs">
                 What was the goal of this conversation?
               </label>
               <input
@@ -153,21 +154,21 @@ const ConversationAssessment = () => {
                 name="goal"
                 value={formData.goal}
                 onChange={handleInputChange}
-                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 print:py-1 print:px-2"
               />
             </div>
 
             {/* Assessment Questions */}
-            <div className="mt-6 relative">
-              <div className="max-h-[600px] overflow-y-auto print-full">
+            <div className="mt-6 relative print:mt-2">
+              <div className="max-h-[600px] overflow-y-auto print:max-h-none print:overflow-visible">
                 <table className="min-w-full divide-y divide-gray-200">
-                  <thead className="sticky top-0 z-10">
+                  <thead className="sticky top-0 z-10 print:relative">
                     <tr>
-                      <th className="px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider shadow-sm">
+                      <th className="px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider shadow-sm print:px-2 print:py-1 print:shadow-none">
                         Question
                       </th>
                       {options.map((option) => (
-                        <th key={option.label} className="px-4 py-3 bg-gray-50 text-center text-xs font-medium text-gray-500 uppercase tracking-wider shadow-sm">
+                        <th key={option.label} className="px-4 py-3 bg-gray-50 text-center text-xs font-medium text-gray-500 uppercase tracking-wider shadow-sm print:px-2 print:py-1 print:shadow-none">
                           {option.label}
                         </th>
                       ))}
@@ -176,18 +177,18 @@ const ConversationAssessment = () => {
                   <tbody className="bg-white divide-y divide-gray-200">
                     {questions.map((question, index) => (
                       <tr key={index} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
-                        <td className="px-4 py-4 text-sm text-gray-900">
+                        <td className="px-4 py-4 text-sm text-gray-900 print:px-2 print:py-2 print:text-xs">
                           {index + 1}. In this conversation, it was difficult for me to... <span className="font-bold">{question}</span>.
                         </td>
                         {options.map((option) => (
-                          <td key={option.label} className="px-4 py-4 text-center">
+                          <td key={option.label} className="px-4 py-4 text-center print:px-2 print:py-1">
                             <input
                               type="radio"
                               name={`question-${index}`}
                               value={option.value}
                               checked={formData.responses[index] === option.value}
                               onChange={() => handleResponseChange(index, option.value)}
-                              className="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500"
+                              className="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500 print:h-3 print:w-3"
                             />
                           </td>
                         ))}
@@ -199,23 +200,23 @@ const ConversationAssessment = () => {
             </div>
 
             {/* Results */}
-            <div className="mt-6 p-4 bg-gray-50 rounded-lg">
-              <h3 className="text-lg font-medium text-gray-900 mb-4">Results</h3>
-              <div className="grid grid-cols-6 gap-4 mb-4">
+            <div className="mt-6 p-4 bg-gray-50 rounded-lg print:mt-2 print:p-2">
+              <h3 className="text-lg font-medium text-gray-900 mb-4 print:text-base print:mb-2">Results</h3>
+              <div className="grid grid-cols-6 gap-4 mb-4 print:gap-2 print:mb-2">
                 {calculateColumnTotals().map((count, index) => (
                   <div key={index} className="text-center">
-                    <div className="text-sm text-gray-500">× {5 - index}</div>
-                    <div className="font-medium text-gray-900">{count}</div>
+                    <div className="text-sm text-gray-500 print:text-xs">× {5 - index}</div>
+                    <div className="font-medium text-gray-900 print:text-sm">{count}</div>
                   </div>
                 ))}
               </div>
               <div className="text-right space-x-4">
                 {isFormComplete() ? (
-                  <span className="text-lg font-medium text-gray-900">
+                  <span className="text-lg font-medium text-gray-900 print:text-base">
                     Raw score: {calculateTotalScore()} / 50
                   </span>
                 ) : (
-                  <span className="text-sm text-gray-600 italic">
+                  <span className="text-sm text-gray-600 italic print:text-xs">
                     Complete all 10 questions to see your score
                   </span>
                 )}
