@@ -205,30 +205,34 @@ const ConversationAssessment = () => {
 
             {/* Results */}
             <div className="mt-6 p-4 bg-gray-50 rounded-lg print:mt-1 print:p-1 print:bg-white print:border-t">
-              <div className="print:flex print:justify-between print:items-center">
-                <div className="text-lg font-medium text-gray-900 mb-4 print:text-sm print:mb-0">
-                  Results
-                </div>
-                <div className="grid grid-cols-6 gap-4 mb-4 print:gap-2 print:mb-0 print:ml-4">
-                  {calculateColumnTotals().map((count, index) => (
-                    <div key={index} className="text-center">
-                      <div className="text-sm text-gray-500 print:text-xs print:inline print:mr-1">× {5 - index}</div>
-                      <div className="font-medium text-gray-900 print:text-xs print:inline">{count}</div>
-                    </div>
-                  ))}
-                </div>
-                <div className="text-right print:ml-4">
-                  {isFormComplete() ? (
+              {isFormComplete() ? (
+                <div className="print:flex print:justify-between print:items-center">
+                  <div className="text-lg font-medium text-gray-900 mb-4 print:text-sm print:mb-0">
+                    Results
+                  </div>
+                  <div className="grid grid-cols-6 gap-4 mb-4 print:gap-2 print:mb-0 print:ml-4">
+                    {calculateColumnTotals().map((count, index) => (
+                      <div key={index} className="text-center">
+                        <div className="text-sm text-gray-500 print:text-xs print:inline print:mr-1">× {5 - index}</div>
+                        <div className="font-medium text-gray-900 print:text-xs print:inline">{count}</div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="text-right print:ml-4">
                     <span className="text-lg font-medium text-gray-900 print:text-sm">
                       Raw score: {calculateTotalScore()} / 50
                     </span>
-                  ) : (
-                    <span className="text-sm text-gray-600 italic print:text-xs">
-                      Complete all 10 questions to see your score
-                    </span>
-                  )}
+                  </div>
                 </div>
-              </div>
+
+              ) : (
+
+                <span className="text-sm text-gray-600 italic print:text-xs">
+                  Complete all 10 questions to see your score
+                </span>
+
+              )}
+
             </div>
 
           </form>
