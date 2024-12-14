@@ -1,18 +1,6 @@
 # PROCS
 
-A responsive web application for conducting conversation assessments, built with React and Tailwind CSS.
-
-![Conversation Assessment Form Screenshot](/screenshot.png)
-
-## Features
-
-- 📱 Fully responsive design
-- 🎨 Clean, professional UI using Tailwind CSS
-- ✨ Real-time score calculation
-- 📊 Automatic scoring system
-- 🎯 Easy-to-use interface
-- 🔒 Input validation
-- 💾 Form state management
+A responsive web form application for conducting conversation assessments, built with React and Tailwind CSS.
 
 ## Live Demo
 

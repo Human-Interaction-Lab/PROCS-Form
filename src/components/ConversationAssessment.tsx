@@ -76,11 +76,13 @@ const ConversationAssessment = () => {
     <div className="min-h-screen bg-gray-50 p-4 sm:p-6 lg:p-8 print:p-1 print:bg-white">
       <div className="max-w-4xl mx-auto bg-white rounded-lg border shadow-sm print:shadow-none print:border-0">
         <div className="p-6 print:p-2">
+
           {/* Title and Print Button */}
-          <div className="flex justify-between items-center mb-6 print:mb-2">
+          <div className="flex justify-between items-center">
             <h1 className="text-2xl font-bold text-gray-800 print:text-lg print:mb-0">
-              Patient-Reported Outcome of Conversational Success
+              Person-Reported Outcome of Conversational Success (PROCS)
             </h1>
+
             <button
               type="button"
               onClick={handlePrintPDF}
@@ -88,6 +90,10 @@ const ConversationAssessment = () => {
             >
               Print Form
             </button>
+          </div>
+
+          <div className="text-sm text-gray-600 italic print:text-xs mb-6 print:mb-2">
+            Authors: S. Budge, C.J. Wynn, T.S. Barrett, C. Baylor, S.A. Borrie
           </div>
 
           <form className="space-y-6 print:space-y-2">
@@ -236,6 +242,7 @@ const ConversationAssessment = () => {
             </div>
 
           </form>
+
 
         </div>
       </div>
