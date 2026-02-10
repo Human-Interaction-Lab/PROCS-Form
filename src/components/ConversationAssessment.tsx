@@ -93,7 +93,7 @@ const ConversationAssessment = () => {
           </div>
 
           <div className="text-sm text-gray-600 italic print:text-xs mb-6 print:mb-2">
-            Authors: S. Budge, C.J. Wynn, T.S. Barrett, C. Baylor, S.A. Borrie
+            Authors: C.J. Wynn, S. Budge, C. Baylor, T.S. Barrett, S.A. Borrie
           </div>
 
           <form className="space-y-6 print:space-y-2">
